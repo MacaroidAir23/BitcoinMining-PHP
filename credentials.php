@@ -2,8 +2,8 @@
 
 class credentials
 {
-    var $dbname = 'u434846567_db';
-    var $username = 'u434846567_usr';
+    var $dbname = 'u509982727_cm';
+    var $username = 'u509982727_cm';
     var $password = '123456';
     var $hostname = 'mysql.hostinger.com';
 

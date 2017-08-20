@@ -19,6 +19,7 @@
             if (strlen($user) > 0 && strlen($pass) > 0) {
                 $sql = "SELECT user, pass FROM $credentials->table_user";
                 $result = $con->query($sql);
+
                 $exist = FALSE;
                 while ($row = $result->fetch_assoc()) {
                     if ($row['user'] == $user) {
@@ -26,6 +27,7 @@
                         break;
                     }
                 }
+
                 if ($exist == FALSE) {
                     $code = getInviteCode();
                     $sql = "INSERT INTO $credentials->table_user (user, pass, invite, promocoins) VALUES ('$user', '$pass', '$code', 0)";
