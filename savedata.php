@@ -15,22 +15,15 @@ if ($con->connect_error) {
     echo json_encode(0);
 } else {
 
-    $coins = 0;
+    $userdata = $_POST['userdata'];
 
-    $sql = "SELECT promocoins
-                FROM $credentials->table_user 
+    $sql = "UPDATE $credentials->table_user 
+                SET userdata = '$userdata' 
                 WHERE user = '$user'
                 AND pass = '$pass'";
-    $result = $con->query($sql);
-    if ($result->num_rows > 0) {
-        while ($row = $result->fetch_assoc()) {
-            $coins = $row['coins'];
-            break;
-        }
-    }
 
     if ($con->query($sql)) {
-        echo json_encode($coins);
+        echo json_encode($userdata);
     } else {
         echo json_encode(0);
     }
